@@ -1,0 +1,14 @@
+udp主要流程：
+socket -> bind -> sendto/recvfrom -> close
+
+tcp client主要流程：
+socket -> connect -> send/recv -> close
+
+tcp server主要流程：
+socket -> bind -> listen -> accept -> send/recv ->close
+
+当客户端的套接字调用close后， 服务器端会recv解堵塞，并返回的长度为0，因此服务器
+可以通过返回数据的长度来区别客户端是否已经下线。
+
+tcp:传输控制协议 Transmission Control Protocol
+udp:用户数据报协议 User Datagram Protocol
